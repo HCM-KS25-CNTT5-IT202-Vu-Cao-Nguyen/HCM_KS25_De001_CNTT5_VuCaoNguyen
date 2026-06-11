@@ -40,11 +40,11 @@ def display_staff():
     for s in staffs:
         print(
             f"{s['ID']:<10}"
-            f"{s['name']:<10}"
-            f"{s['basic_salary']:<10}"
-            f"{s['work_day']:<10}"
+            f"{s['name']:<18}"
+            f"{s['basic_salary']:<25}"
+            f"{s['work_day']:<18}"
             f"{s['allowance']:<10}"
-            f"{s['total_income']:<10}"
+            f"{s['total_income']:<15}"
             f"{s['classify']:<10}"
         )
 
