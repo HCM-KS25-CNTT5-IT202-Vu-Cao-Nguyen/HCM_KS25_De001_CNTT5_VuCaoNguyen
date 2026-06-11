@@ -22,11 +22,16 @@ def find_staff_id(st_id):
     print("Không tìm thấy id nhân viên")
 
 def display_staff():
+
+    if not staffs:
+        print("Chưa có nhân viên nào")
+        return
+
     print(
         f"{'ID':<10}",
-        f"{'Tên nhân viên':<10}",
-        f"{'Lương cơ bản':<10}"
-        f"{'Số ngày làm việc':<10}"
+        f"{'Tên nhân viên':<18}",
+        f"{'Lương cơ bản':<25}"
+        f"{'Số ngày làm việc':<18}"
         f"{'Phụ Cấp':<10}"
         f"{'Tổng thu nhập':<15}"
         f"{'Phân loại':<10}"
@@ -140,13 +145,21 @@ def update_staff():
 
     print("Nhập thông tin mới")
 
-    st_id = input_staff_id()
     name = input_name_staff()
     work_day = input_work_day_staff()
     basic_salary = input_basic_salary_staff()
     allowance = input_allowance_staff()
     total_income = total_income_staff(basic_salary, work_day, allowance)
     classify = classify_salary(total_income)
+
+    staff["name"] = name
+    staff["work_day"] = work_day
+    staff["basic_salary"] = basic_salary
+    staff["allowance"] = allowance
+    staff["total_income"] = total_income
+    staff["classify"] = classify
+
+    print("Sửa nhân viên thành công")
 
 def delete_staff():
 
@@ -192,6 +205,7 @@ def search_staff():
         case "2":
             keyword = input("Nhập tên nhân viên cần tìm: ").strip().lower()
 
+
         case _:
             print("Lựa chọn không hợp lệ")
 
@@ -201,12 +215,12 @@ def classify_salary_staff():
         print("Không có nhân viên nào")
         return
 
-    
+
+
     low = 0
     medium = 0
     big = 0
     very_big = 0
-
 
 
 
